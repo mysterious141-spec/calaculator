@@ -1,14 +1,6 @@
-# Stacks in the Real World: Undo/Redo Editor and Two Mini Demos
+# Stacks in the Real World: Undo/Redo Editor
 
 Assignment: describe real-world applications that need a **stack**, explain why a stack is necessary, and develop one application.
-
-**Live demos (GitHub Pages)**
-
-| Demo | Link |
-|---|---|
-| Undo/Redo Editor (main application) | https://mysterious141-spec.github.io/undo-redo-editor/ |
-| Bracket Checker (bonus) | https://mysterious141-spec.github.io/undo-redo-editor/brackets.html |
-| Stack Calculator (bonus) | https://mysterious141-spec.github.io/undo-redo-editor/calculator.html |
 
 ---
 
@@ -68,12 +60,7 @@ public boolean undo() {
 - 7 unit tests, run automatically by GitHub Actions on every push
 - A browser version that shows both stacks changing live
 
-## 4. Bonus demos
-
-- **Bracket Checker** (`docs/brackets.html`): pushes opening brackets and pops on closing ones. It reports the exact error and shows the stack.
-- **Stack Calculator** (`docs/calculator.html`): converts an expression like `3 + 4 * 2` to postfix with an operator stack, then evaluates it with a value stack. Both stacks are shown step by step.
-
-## 5. Run it
+## 4. Run it
 
 **Java version**
 ```bash
@@ -83,24 +70,22 @@ java -cp target/classes com.alex.editor.Main
 ```
 Commands: `type <text>`, `delete <n>`, `left [n]`, `right [n]`, `home`, `end`, `undo`, `redo`, `exit`
 
-**Web versions:** open any file in `docs/` in a browser, or use the live links above.
+**Web version:** open `docs/index.html` in a browser.
 
-## 6. Project structure
+## 5. Project structure
 
 ```
 undo-redo-editor/
 ├── .github/workflows/ci.yml        Runs mvn test on every push
 ├── docs/
-│   ├── index.html                  Undo/Redo Editor (web)
-│   ├── brackets.html               Bracket Checker
-│   └── calculator.html             Stack Calculator
+│   └── index.html                  Web version of the editor
 ├── src/main/java/com/alex/editor/  Command, Document, InsertCommand, DeleteCommand, Editor, Main
 ├── src/test/java/com/alex/editor/  EditorTest
 ├── pom.xml
 └── README.md
 ```
 
-## 7. Possible improvements
+## 6. Possible improvements
 - Merge consecutive typing into a single undo step
 - Text selection and copy/paste commands
 - Save and load files
